@@ -9,13 +9,21 @@ The PDF processing market has clear leaders in each category:
 3. **Azure/AWS Textract** — Best enterprise accuracy (but vendor lock-in, per-page billing)
 4. **PyMuPDF4LLM** — Fastest local parsing (but basic quality)
 
-**StreamPDF's Strategy:** We compete against the best by being **faster, cheaper, and more flexible** than all of them.
+**StreamPDF's Core Philosophy:** Read the least, parse the minimum.
+
+Not "extract the maximum." Not "convert everything." Not "make everything available."
+
+**Read the least** → Understand what's actually needed before reading
+**Parse the minimum** → Extract only what's necessary, nothing more
+
+**StreamPDF's Strategy:** We compete against the best by being **faster, cheaper, and more intelligent** than all of them.
 
 - **Better PDF Parser:** Outperforms LlamaParse on speed, Docling on efficiency, Marker on cost
 - **Flexible Conversion:** Full markdown conversion (like competitors) OR selective conversion (our innovation)
+- **Intelligent Filtering:** Skip irrelevant content, summarize complex content, describe instead of embed
 - **Layered Intelligence:** Add retrieval optimization, token efficiency, and smart caching on top
 
-**Result:** Best-in-class parsing + best-in-class efficiency = market leader
+**Result:** Best-in-class parsing + best-in-class efficiency + the only platform that questions whether content is needed before extracting it
 
 ---
 

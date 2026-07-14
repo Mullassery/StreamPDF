@@ -1,12 +1,22 @@
 # StreamPDF: The Intelligence Engine for PDFs
 
+## Core Philosophy
+
+**Read the least. Parse the minimum.**
+
+Not "extract the maximum." Not "convert everything." Not "make everything available."
+
 ## Core Mission
 
 **Build the world's fastest PDF Intelligence Engine for AI agents.**
 
 Enable organizations and AI systems to understand, navigate, search, and retrieve information from PDFs without requiring full document conversion.
 
-**The fundamental principle: Convert only what is needed, when it is needed.**
+**The fundamental principle:** Before reading anything, ask: "Do we actually need this?"
+
+This inverts the traditional PDF processing model:
+- **Traditional:** Read everything → Process everything → Hope agent uses what matters
+- **StreamPDF:** Question whether it's needed → Only read if necessary → 100% of retrieved content is useful
 
 ---
 
