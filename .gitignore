@@ -51,3 +51,15 @@ htmlcov/
 
 # Documentation
 site/
+
+# Internal strategy/research docs (keep locally, don't commit)
+ARCHITECTURE.md
+COMPETITIVE_ANALYSIS.md
+IMPLEMENTATION_ROADMAP.md
+RESEARCH_FINDINGS_*.md
+RESEARCH_*.md
+STREAMPDF_VISION.md
+STREAMPDF_RESEARCH_PHASE.md
+STREAMPDF_CACHING_STRATEGY.md
+STRUCTURAL_METADATA_STRATEGY.md
+WEEK1_*.md
