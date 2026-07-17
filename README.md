@@ -3,7 +3,7 @@
 **The Intelligence Engine for PDFs**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Version: v1.5.0](https://img.shields.io/badge/Version-v1.5.0-blue)
+![Version: v2.0.0](https://img.shields.io/badge/Version-v2.0.0-blue)
 ![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
 ---
@@ -246,11 +246,14 @@ events = audit.events()
 | **Large Documents** | ❌ Memory issues >100 pages | ✅ Handles 1000+ pages |
 | **Structured Navigation** | ❌ Manual parsing | ✅ Automatic hierarchy |
 | **Security Support** | ❌ Basic | ✅ Encryption, permissions, audit |
-| **Production Ready** | ❌ Experimental | ✅ 48/48 tests passing |
+| **Semantic Understanding** | ❌ None | ✅ Entities, relationships, knowledge graphs |
+| **Fact Verification** | ❌ None | ✅ Grounding, hallucination detection |
+| **Intelligent Assembly** | ❌ Fixed order | ✅ 4 adaptive strategies |
+| **Production Ready** | ❌ Experimental | ✅ 94/94 tests passing |
 
 ---
 
-## Current Status: v1.5.0 (Enterprise Features)
+## Current Status: v2.0.0 (Semantic Intelligence)
 
 ### What's Complete
 
@@ -270,7 +273,7 @@ events = audit.events()
 - Token-efficient context assembly
 - PdfNavigator for structured browsing
 
-✅ **Phase 3: Enterprise Features** (v1.5) — **CURRENT**
+✅ **Phase 3: Enterprise Features** (v1.5)
 - Full-text FTS5 indexing (not just preview)
 - Thread-safe index sharing with Arc<Mutex>
 - Real heading level detection (H1-H4)
@@ -280,12 +283,36 @@ events = audit.events()
 - Form field detection framework
 - Scanned PDF detection
 - SHA-256 fingerprinting
-- 48/48 tests passing
+
+✅ **Phase 4: Semantic Intelligence** (v2.0) — **CURRENT** (94 tests passing)
+
+**Phase 4.1: Entity Extraction** (19 tests)
+- Concept extraction: persons, organizations, locations, concepts, methods, metrics, dates
+- Pattern matching + domain-specific keyword detection (14 categories)
+- Confidence scoring per entity
+- Batch processing and deduplication
+
+**Phase 4.2: Relationships & Knowledge Graphs** (30 tests)
+- 14 relationship types with bidirectional reversal (CITES, EXTENDS, REFUTES, USES, ENABLES, REFINES, AUTHOR_OF, RELATED_TO)
+- Pattern-based extraction with evidence tracking
+- In-memory knowledge graph with adjacency lists
+- BFS neighbor queries at varying depths, shortest path finding
+- Similarity detection via Jaccard coefficient
+- Influence calculation and node statistics
+
+**Phase 4.3: Fact Verification & Context Assembly** (22 tests)
+- Grounding as confidence spectrum (0-1), not binary
+- 5 verification status levels: GROUNDED, PARTIALLY_GROUNDED, NOT_GROUNDED, REFUTED, UNCERTAIN
+- Evidence-based fact verification with support/refute analysis
+- Hallucination detection with confidence thresholds
+- 4 assembly strategies (scholarly, technical, survey, tutorial)
+- Token-aware context optimization respecting budget constraints
+- Coverage and coherence scoring
 
 ### Roadmap
 
-- **v2.0** (Phase 4) — Semantic understanding, citation networks, topic hierarchies
-- **v2.5** (Phase 5+) — Advanced cost optimization, multi-format support
+- **v2.5** (Phase 5) — Advanced cost optimization, multi-format support, topic hierarchies
+- **v3.0** (Phase 6+) — Distributed indexing, cross-document reasoning
 
 ---
 
@@ -293,11 +320,13 @@ events = audit.events()
 
 ## Roadmap
 
-- **v0.1** (4 weeks) — PDF parsing & structure analysis
-- **v0.5** (4 weeks) — Intelligent indexing & page-level retrieval  
-- **v1.0** (8 weeks) — Agent integration & token optimization
-- **v1.5** (8 weeks) — Enterprise features & security
-- **v2.0** (12 weeks) — Advanced intelligence & cost analytics
+- **v0.1** ✅ — PDF parsing & structure analysis
+- **v0.5** ✅ — Intelligent indexing & page-level retrieval  
+- **v1.0** ✅ — Agent integration & token optimization
+- **v1.5** ✅ — Enterprise features & security
+- **v2.0** ✅ — Semantic intelligence (entity extraction, relationships, fact verification)
+- **v2.5** 🔄 — Advanced cost optimization & multi-format support
+- **v3.0** 📋 — Distributed indexing & cross-document reasoning
 
 ---
 
