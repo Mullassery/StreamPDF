@@ -309,25 +309,6 @@ events = audit.events()
 - Token-aware context optimization respecting budget constraints
 - Coverage and coherence scoring
 
-### Roadmap
-
-- **v2.5** (Phase 5) — Advanced cost optimization, multi-format support, topic hierarchies
-- **v3.0** (Phase 6+) — Distributed indexing, cross-document reasoning
-
----
-
----
-
-## Roadmap
-
-- **v0.1** ✅ — PDF parsing & structure analysis
-- **v0.5** ✅ — Intelligent indexing & page-level retrieval  
-- **v1.0** ✅ — Agent integration & token optimization
-- **v1.5** ✅ — Enterprise features & security
-- **v2.0** ✅ — Semantic intelligence (entity extraction, relationships, fact verification)
-- **v2.5** 🔄 — Advanced cost optimization & multi-format support
-- **v3.0** 📋 — Distributed indexing & cross-document reasoning
-
 ---
 
 ## Why PyStreamPDF
