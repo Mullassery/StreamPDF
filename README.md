@@ -73,7 +73,7 @@ Result: 10-50x cost reduction with same or better accuracy
 - ✅ Have large PDFs (100+ pages) and your token costs are growing
 - ✅ Want faster, cheaper AI-PDF interactions without sacrificing accuracy
 - ✅ Need to handle multiple PDF formats (technical docs, manuals, reports)
-- ✅ Work with encryption or permissions (enterprise PDFs)
+- ✅ Work with encryption or permissions (secure PDFs)
 - ✅ Want production-ready, tested code (not experiments)
 
 ### Use Cases
@@ -81,7 +81,7 @@ Result: 10-50x cost reduction with same or better accuracy
 - 📊 **Data Extraction**: Pull specific information from reports
 - 📖 **Summarization**: Quick summaries without processing entire documents
 - 🔍 **Research**: Find citations and relevant sections across large archives
-- 🏢 **Enterprise Systems**: Compliance, audit, contract analysis
+- 🔒 **Compliance & Audit**: Contract analysis, compliance workflows
 
 ---
 
@@ -187,7 +187,7 @@ for section in context.sections:
     print(f"  {section.heading_path}: {len(section.content)} chars")
 ```
 
-### Enterprise Features
+### Security & Compliance Features
 
 ```python
 # Check if PDF is encrypted
@@ -273,7 +273,7 @@ events = audit.events()
 - Token-efficient context assembly
 - PdfNavigator for structured browsing
 
-✅ **Phase 3: Enterprise Features** (v1.5)
+✅ **Phase 3: Advanced Features** (v1.5)
 - Full-text FTS5 indexing (not just preview)
 - Thread-safe index sharing with Arc<Mutex>
 - Real heading level detection (H1-H4)
@@ -328,7 +328,7 @@ events = audit.events()
 - Agent-native navigation
 - Token-aware context generation
 
-### Enterprise Ready
+### Production-Ready
 - Security-aware (encrypted PDFs, permissions)
 - Large document optimization (1000+ pages)
 - Production observability
