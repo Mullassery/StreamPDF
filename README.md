@@ -2,6 +2,10 @@
 
 **The Intelligence Engine for PDFs**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Version: v1.5.0](https://img.shields.io/badge/Version-v1.5.0-blue)
+![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+
 ---
 
 ## The Problem You're Facing
