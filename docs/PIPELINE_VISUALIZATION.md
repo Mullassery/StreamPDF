@@ -68,7 +68,7 @@ context, flow = navigator.retrieve_with_flow(
 
 **Absolute Limits (enforced):**
 - Below 250: Not allowed (loses too much context)
-- Above 2000: Not allowed (defeats selective extraction)
+- Above 1000: Not allowed (defeats selective extraction)
 - Custom values outside presets: Raises error
 
 No exceptions to these limits. They define PyStreamPDF's selectivity mission.

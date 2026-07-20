@@ -23,7 +23,7 @@ class TokenBudgetConfig:
 
     # Hard limits to prevent unreasonable values
     MIN_REASONABLE = 250      # Below this: too aggressive, loses context
-    MAX_REASONABLE = 2000     # Above this: defeats PyStreamPDF's selective mission
+    MAX_REASONABLE = 1000     # Above this: defeats PyStreamPDF's selective mission
 
     @staticmethod
     def validate(max_tokens: int) -> int:
@@ -31,7 +31,7 @@ class TokenBudgetConfig:
 
         PyStreamPDF enforces strict limits to maintain selectivity:
         - Below 250: Loses too much context
-        - Above 2000: Defeats selective extraction mission
+        - Above 1000: Defeats selective extraction mission
 
         No exceptions to these limits.
         """
