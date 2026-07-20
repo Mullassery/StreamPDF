@@ -29,6 +29,21 @@ from .extraction import (
     TextFragment,
 )
 
+# OCR and configuration modules
+from .ocr import (
+    OCRProcessor,
+    OCRConfig,
+    OCRBackend,
+    OCRResult,
+    process_scanned_pdf,
+)
+
+from .config import (
+    TokenBudgetConfig,
+    RetrievalConfig,
+    suggest_budget_for_use_case,
+)
+
 __all__ = [
     # Core (optional)
     *((["open", "load_index"]) if open and load_index else []),
@@ -45,4 +60,13 @@ __all__ = [
     "MultimediaElement",
     "SourceLocation",
     "TextFragment",
+    # OCR & configuration
+    "OCRProcessor",
+    "OCRConfig",
+    "OCRBackend",
+    "OCRResult",
+    "process_scanned_pdf",
+    "TokenBudgetConfig",
+    "RetrievalConfig",
+    "suggest_budget_for_use_case",
 ]
