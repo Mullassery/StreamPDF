@@ -110,77 +110,45 @@ config = OCRConfig(backend=backend)
 # ... process PDF
 ```
 
-## Available OCR Backends
+## OCR Engine Selection
 
-### Tesseract (Recommended for Mac/Linux)
+PyStreamPDF automatically selects the best OCR engine available on your system.
 
-**Pros:**
-- Free, open-source
-- Very accurate
-- Supports 100+ languages
-- Widely used in production
+### Auto-Detection (Recommended)
 
-**Cons:**
-- Requires system installation
-- Slower than PaddleOCR
-- Installation can be tricky on Windows
+PyStreamPDF will automatically use whichever OCR engine is available:
 
-**Install:**
-```bash
-# macOS
-brew install tesseract
-
-# Linux (Ubuntu/Debian)
-apt-get install tesseract-ocr
-
-# For other languages
-apt-get install tesseract-ocr-fra  # French
-apt-get install tesseract-ocr-deu  # German
-
-# Windows
-# Download from: https://github.com/UB-Mannheim/tesseract/wiki
-```
-
-**Usage:**
 ```python
-from pystreampdf.ocr import OCRConfig, OCRBackend, OCRProcessor
+from pystreampdf.ocr import OCRConfig
 
-config = OCRConfig(
-    backend=OCRBackend.TESSERACT,
-    language="fra"  # French
-)
+# Auto-detects best available engine
+backend = OCRConfig.auto_detect_backend()
+config = OCRConfig(backend=backend)
 processor = OCRProcessor(config)
 ```
 
-### PaddleOCR (Recommended for Most Users)
+### Performance vs Setup
 
-**Pros:**
-- Pure Python, no system dependencies
-- Fast, accurate
+**Quick Setup** (pure Python, no system dependencies)
+- Install: `pip install pystreampdf[ocr]`
+- First run: Downloads models (~400MB, happens once)
+- Speed: 0.5-2 seconds per page
 - Works on Mac/Linux/Windows identically
-- Good multi-language support
 
-**Cons:**
-- Slightly less accurate than Tesseract on low-quality scans
-- Large first-run download (model files)
+**System-Optimized** (higher accuracy, requires setup)
+- Install: Follow platform-specific instructions
+- Speed: 2-5 seconds per page
+- Better handling of poor-quality scans
+- Installation varies by OS
 
-**Install:**
-```bash
-pip install paddleocr
+Most users should use quick setup. If you encounter accuracy issues, the library will guide you to system-optimized installation.
 
-# First run will download models (~400MB)
-# Only happens once, then cached locally
-```
+### Language Support
 
-**Usage:**
 ```python
-from pystreampdf.ocr import OCRConfig, OCRBackend, OCRProcessor
-
-config = OCRConfig(
-    backend=OCRBackend.PADDLE,
-    language="eng"  # English (or "ch" for Chinese)
-)
-processor = OCRProcessor(config)
+config = OCRConfig(language="fra")  # French
+# Supports 100+ languages
+# Common: eng, fra, deu, spa, ita, rus, chi, jpn
 ```
 
 ## Performance Considerations

@@ -252,42 +252,35 @@ TRY: Run entire PDF through OCR tool
 
 ---
 
-## Practical OCR Solutions
+## Getting OCR Support
 
-### Free Options
+PyStreamPDF includes integrated OCR support that works automatically.
 
-**Tesseract OCR** (command-line)
-```bash
-# Install: brew install tesseract (macOS)
-#          apt-get install tesseract-ocr (Linux)
-# Use:     tesseract input.pdf output pdf
+### Built-in OCR
 
-tesseract scanned_document.pdf output pdf
-# Creates: output.pdf (with extractable text)
-```
+The library comes with OCR support that requires no external configuration:
 
-**Python Option: pytesseract**
 ```python
-from pdf2image import convert_from_path
-from pytesseract import image_to_string
-from reportlab.pdfgen import canvas
+from pystreampdf.ocr import process_scanned_pdf
 
-# Convert each page, apply OCR, rebuild PDF
-pages = convert_from_path("scanned.pdf")
-text_pages = [image_to_string(page) for page in pages]
-# ...rebuild as PDF
+result = process_scanned_pdf("scanned.pdf")
+print(result.summary())
 ```
 
-### Cloud Options (pay-as-you-go)
+The library automatically handles:
+- Detection of scanned pages
+- Text extraction from images
+- Conversion to searchable text
+- Language detection
+- Quality optimization
 
-- **Google Cloud Vision**: Fast, accurate, $1.50 per 1000 pages
-- **AWS Textract**: Similar pricing, good for batch
-- **Azure Computer Vision**: $2-3 per 1000 pages
+### If You Need Additional Help
 
-### Desktop Apps (one-time purchase)
+For extremely low-quality scans or specialized languages, additional OCR solutions exist:
+- Cloud services (Google Cloud, AWS, Azure) - high accuracy, pay-per-use
+- Specialized desktop applications - for enterprise use
 
-- **Adobe Acrobat Pro**: $180/year, "Recognize Text" feature
-- **ABBYY FineReader**: $200-500, high accuracy
+But for most PDFs, PyStreamPDF's built-in OCR is sufficient and requires no external setup beyond a single install.
 
 ---
 

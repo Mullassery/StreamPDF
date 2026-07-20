@@ -2,7 +2,7 @@
 OCR (Optical Character Recognition) support for PyStreamPDF
 
 Converts scanned PDFs (image-based) to text-extractable PDFs.
-Supports multiple OCR backends: Tesseract, PaddleOCR, cloud services.
+Automatic backend selection for optimal performance.
 """
 
 import os
@@ -55,9 +55,8 @@ class OCRConfig:
             return OCRBackend.PADDLE
 
         raise RuntimeError(
-            "No OCR backend available. Install: "
-            "1. Tesseract: brew install tesseract (macOS) or apt install tesseract-ocr (Linux)\n"
-            "2. Or PaddleOCR: pip install paddleocr"
+            "OCR engine not available. Install with: pip install pystreampdf[ocr]\n"
+            "For system-specific setup, see documentation."
         )
 
     @staticmethod
@@ -106,26 +105,22 @@ class OCRProcessor:
             raise NotImplementedError(f"Backend {self.config.backend} not yet implemented")
 
     def _init_tesseract(self) -> None:
-        """Initialize Tesseract backend"""
+        """Initialize system-optimized OCR backend"""
         try:
             import pytesseract
             self.ocr_engine = pytesseract
             self.ocr_type = "tesseract"
         except ImportError:
             raise ImportError(
-                "pytesseract not installed. Install with:\n"
-                "  pip install pytesseract\n"
-                "Then install Tesseract:\n"
-                "  brew install tesseract (macOS)\n"
-                "  apt-get install tesseract-ocr (Linux)\n"
-                "  Download from https://github.com/UB-Mannheim/tesseract/wiki (Windows)"
+                "System OCR engine not installed. Install with:\n"
+                "  pip install pystreampdf[ocr]\n"
+                "See documentation for system-specific setup instructions."
             )
 
     def _init_paddle(self) -> None:
-        """Initialize PaddleOCR backend"""
+        """Initialize pure-Python OCR backend"""
         try:
             from paddleocr import PaddleOCR
-            # Use specified language, default to English
             self.ocr_engine = PaddleOCR(
                 use_angle_cls=True,
                 lang=self.config.language.lower(),
@@ -133,8 +128,8 @@ class OCRProcessor:
             self.ocr_type = "paddle"
         except ImportError:
             raise ImportError(
-                "paddleocr not installed. Install with:\n"
-                "  pip install paddleocr"
+                "OCR engine not installed. Install with:\n"
+                "  pip install pystreampdf[ocr]"
             )
 
     def process_page(self, image_path: str) -> str:
@@ -155,7 +150,7 @@ class OCRProcessor:
             raise ValueError(f"Unknown OCR type: {self.ocr_type}")
 
     def _process_tesseract(self, image_path: str) -> str:
-        """Process image with Tesseract"""
+        """Process image with system-optimized OCR"""
         try:
             import pytesseract
             text = pytesseract.image_to_string(
@@ -164,26 +159,23 @@ class OCRProcessor:
             )
             return text
         except Exception as e:
-            raise RuntimeError(f"Tesseract OCR failed: {e}")
+            raise RuntimeError(f"OCR processing failed: {e}")
 
     def _process_paddle(self, image_path: str) -> str:
-        """Process image with PaddleOCR"""
+        """Process image with pure-Python OCR"""
         try:
             result = self.ocr_engine.ocr(image_path, cls=True)
 
-            # Extract text from results
-            # PaddleOCR returns: [[[x, y], [x, y], [x, y], [x, y]], (text, confidence)]]
             texts = []
             for line in result:
                 for word_box in line:
                     text, confidence = word_box[1]
-                    # Filter by confidence threshold
                     if confidence >= self.config.confidence_threshold:
                         texts.append(text)
 
             return "\n".join(texts)
         except Exception as e:
-            raise RuntimeError(f"PaddleOCR failed: {e}")
+            raise RuntimeError(f"OCR processing failed: {e}")
 
     def process_pdf_pages(self, pdf_path: str) -> Tuple[str, dict]:
         """
