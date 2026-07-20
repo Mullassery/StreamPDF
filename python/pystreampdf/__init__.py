@@ -45,6 +45,13 @@ from .config import (
     suggest_budget_for_use_case,
 )
 
+from .search import (
+    SearchResult,
+    SearchFilter,
+    SearchResults,
+    combine_filters,
+)
+
 __all__ = [
     # Core (optional)
     *((["open", "load_index"]) if open and load_index else []),
@@ -71,4 +78,9 @@ __all__ = [
     "RetrievalConfig",
     "FilteringConfig",
     "suggest_budget_for_use_case",
+    # Search & filtering
+    "SearchResult",
+    "SearchFilter",
+    "SearchResults",
+    "combine_filters",
 ]
